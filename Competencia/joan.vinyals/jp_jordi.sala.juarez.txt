@@ -1,0 +1,892 @@
+//ENTRADA COMENTADA//
+
+
+7
+4 7 5 6 4 7 4 5
+5 8
+2
+// el cromosoma sexual de la mare no té perque ser més llarg que el del pare per tant comprobo que es faci min(lx,ly) al creuar
+// cadenes de cromosomes per això tinc que lx = 5 i ly = 8
+
+
+//comprobem d'afegir 2 individus sense instrucció
+X1
+X
+0 1 1 0 1
+0 1 1 0 0
+0 0 0 1 0 1 1
+0 0 0 1 1 1 1
+0 0 0 1 1
+1 0 1 0 1
+1 1 1 0 1 0
+0 1 0 1 0 1
+0 0 1 0
+0 0 1 1
+1 0 1 0 1 0 1
+1 1 0 1 0 1 0
+1 0 0 1
+0 1 0 0
+0 0 0 1 1
+0 1 0 0 0
+
+Y1
+Y
+0 1 0 0 0
+0 1 1 0 0 0 1 1
+1 0 1 0 0 0 1
+0 0 1 1 1 0 1
+0 1 1 1 1
+1 1 1 1 1
+1 0 1 1 0 1
+0 1 1 0 0 1
+0 1 1 1
+0 0 0 1
+0 1 0 1 0 1 0
+1 1 1 1 0 0 0
+1 0 1 0
+0 0 0 0
+1 0 1 1 1
+1 1 0 0 1
+
+
+//comprobem d'afegir 2 individus amb instrucció
+anadir_individuo
+X2
+X
+1 0 1 1 0
+1 0 1 1 1
+1 1 0 0 1 1 0
+1 0 0 1 1 1 0
+0 0 0 0 0
+0 1 1 1 0
+0 1 0 1 0 1
+0 1 0 0 1 1
+0 0 1 0
+0 0 1 1
+1 0 0 1 0 0 1
+1 0 0 0 0 1 0
+1 1 1 0
+0 1 0 0
+0 0 0 1 0
+0 0 0 0 1
+
+anadir_individuo
+Y2
+Y
+0 0 0 0 0
+1 1 0 0 1 1 1 1
+0 1 0 0 1 1 1
+1 0 1 1 1 0 0
+1 0 0 0 0
+0 0 0 0 0
+1 1 0 1 0 1
+0 0 0 1 1 0
+0 0 1 0
+1 1 0 1
+1 1 1 1 0 1 1
+0 1 1 0 1 0 0
+0 0 0 0
+1 0 1 0
+0 0 0 0 0
+1 1 0 1 0
+
+// identifico els individus per X# i Y# segons el seu cromosoma identificador per facilitar la comprensió
+
+escribir_poblacion // comprobem que aquestes operacions funcionen
+
+
+// en les reproduccions busco fer la combinacio genetica arran del max(min(li),min(lx,ly)) per veure si hi han errors en l'extrem
+reproduccion_sexual // reproduccio que funciona
+X2 Y2 Y3
+1 1 4
+1 1 3
+1 0 4
+1 1 4
+0 1 4
+1 1 3
+1 0 4
+1 1 4
+
+reproduccion_sexual // reproducció que no funciona: busco si comproben que ja esta Y3, també si comproben si el primer és X i els segon es Y ja que sinò al mirar si comparteixen pare o mare fallaria i llavors seria cert
+Y2 X2 Y3
+1 1 4
+1 1 3
+0 1 4
+1 1 4
+1 0 3
+1 1 4
+1 1 4
+0 1 4
+
+reproduccion_sexual // reproducció que no funciona: busco que comprobin que el primer és X i els segón Y
+Y2 X2 X3
+1 0 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 3
+1 1 4
+1 1 4
+
+reproduccion_sexual // reproducció que funciona
+X2 Y2 X3
+1 0 4
+1 1 4
+1 1 4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+reproduccion_sexual // reproducció que no funciona: vull comprobar si es pot afegir ascendencia a un individu
+X1 Y1 X2
+1 0 4
+1 1 4
+1 1 4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+completar_arbol_genealogico // si no es pogues aquest arbre donaria que no es pot completar
+Y3 Y2 $ $ X2 Y1 $ $ X1 $ $
+
+
+reproduccion_sexual //reproducció que funciona: comprobo que es llegeixi per complet la entrada (com per exemple carregar-la en un dummie)
+X1 Y1 acabar
+1 0 4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+
+reproduccion_sexual // reproducció que no funciona: busco veure si deixa de llegir al veure que el primer no es X i llavors llegeix la instrucció acabar finalitzant el programa
+Y3 acabar Y4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+
+escribir_poblacion // comprobació de que portem la població correctament
+
+
+escribir_arbol_genealogico // comprobació de l'ascendéncia
+X1
+
+escribir_arbol_genealogico // comprobació de l'ascendéncia
+Y1
+
+escribir_arbol_genealogico // comprobació de l'ascendéncia
+X2
+
+escribir_arbol_genealogico // comprobació de l'ascendéncia
+X3
+
+escribir_arbol_genealogico // comprobació de l'ascendéncia
+Y2
+
+escribir_arbol_genealogico // comprobació de l'ascendéncia
+Y3
+
+escribir_arbol_genealogico // comprobació de l'ascendéncia
+acabar
+
+escribir_arbol_genealogico // comprobació d'entrada incorrecte
+dummie
+
+reproduccion_sexual // busco fer un arbre que al llegir per nivells un nivell anterior quedi més ample que el posterior per tant reprodueixo X# i Y# de diferents nivells
+X3 Y1 X4
+
+1 0 4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+escribir_poblacion // comprobació de que portem la població correctament
+
+reproduccion_sexual // una altre reproduccio amb diferencia de nivell
+X4 Y3 X5
+1 1 4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+escribir_arbol_genealogico // arbre amb diferencies de nivell que serveix per veure si la lectura per nivells detecta si una rama s'acaba o no
+X5
+
+
+completar_arbol_genealogico // operacio de completar arbre que es mes llarga que el propi arbre a completar
+X2 Y1 $ $ X1 $ $
+
+completar_arbol_genealogico // operacio de completar arbre que es mes llarga que el propi arbre a completar cambiant l'ordre de X i Y per veure si els té diferenciats o simplement fa una cerca a una distancia determinada
+X2 X1 $ $ Y1 $ $
+
+completar_arbol_genealogico // operacio de completar arbre amb l'ordre X i Y al revés
+acabar X1 $ $ $
+
+completar_arbol_genealogico // operació correcta de completar arbre
+acabar Y1 $ $ $
+
+completar_arbol_genealogico // operació de completar en la qual busco que al detectar error no llegeixi de totes formes l'entrada i per tant realitzi la operació acabar finalitzant el programa
+acabar acabar $ $ acabar $ $
+
+escribir_genotipo // comprobació de la reproducció
+acabar
+
+escribir_genotipo  // comprobació de la reproducció
+X3
+
+escribir_genotipo  // comprobació de la reproducció
+X4
+
+escribir_genotipo  // comprobació de la reproducció
+X5
+
+escribir_genotipo  // comprobació de la reproducció
+Y3
+
+escribir_poblacion  // comprobació de la reproducció
+
+acabar
+
+
+
+
+
+
+//ENTRADA SENSE COMENTAR//
+
+
+
+
+
+7
+4 7 5 6 4 7 4 5
+5 8
+2
+
+X1
+X
+0 1 1 0 1
+0 1 1 0 0
+0 0 0 1 0 1 1
+0 0 0 1 1 1 1
+0 0 0 1 1
+1 0 1 0 1
+1 1 1 0 1 0
+0 1 0 1 0 1
+0 0 1 0
+0 0 1 1
+1 0 1 0 1 0 1
+1 1 0 1 0 1 0
+1 0 0 1
+0 1 0 0
+0 0 0 1 1
+0 1 0 0 0
+
+Y1
+Y
+0 1 0 0 0
+0 1 1 0 0 0 1 1
+1 0 1 0 0 0 1
+0 0 1 1 1 0 1
+0 1 1 1 1
+1 1 1 1 1
+1 0 1 1 0 1
+0 1 1 0 0 1
+0 1 1 1
+0 0 0 1
+0 1 0 1 0 1 0
+1 1 1 1 0 0 0
+1 0 1 0
+0 0 0 0
+1 0 1 1 1
+1 1 0 0 1
+
+anadir_individuo
+X2
+X
+1 0 1 1 0
+1 0 1 1 1
+1 1 0 0 1 1 0
+1 0 0 1 1 1 0
+0 0 0 0 0
+0 1 1 1 0
+0 1 0 1 0 1
+0 1 0 0 1 1
+0 0 1 0
+0 0 1 1
+1 0 0 1 0 0 1
+1 0 0 0 0 1 0
+1 1 1 0
+0 1 0 0
+0 0 0 1 0
+0 0 0 0 1
+
+anadir_individuo
+Y2
+Y
+0 0 0 0 0
+1 1 0 0 1 1 1 1
+0 1 0 0 1 1 1
+1 0 1 1 1 0 0
+1 0 0 0 0
+0 0 0 0 0
+1 1 0 1 0 1
+0 0 0 1 1 0
+0 0 1 0
+1 1 0 1
+1 1 1 1 0 1 1
+0 1 1 0 1 0 0
+0 0 0 0
+1 0 1 0
+0 0 0 0 0
+1 1 0 1 0
+
+escribir_poblacion
+
+
+
+reproduccion_sexual
+X2 Y2 Y3
+1 1 4
+1 1 3
+1 0 4
+1 1 4
+0 1 4
+1 1 3
+1 0 4
+1 1 4
+
+reproduccion_sexual
+Y2 X2 Y3
+1 1 4
+1 1 3
+0 1 4
+1 1 4
+1 0 3
+1 1 4
+1 1 4
+0 1 4
+
+reproduccion_sexual
+Y2 X2 X3
+1 0 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 3
+1 1 4
+1 1 4
+
+reproduccion_sexual
+X2 Y2 X3
+1 0 4
+1 1 4
+1 1 4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+reproduccion_sexual
+X1 Y1 X2
+1 0 4
+1 1 4
+1 1 4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+completar_arbol_genealogico
+Y3 Y2 $ $ X2 Y1 $ $ X1 $ $
+
+
+reproduccion_sexual
+X1 Y1 acabar
+1 0 4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+
+reproduccion_sexual
+Y3 acabar Y4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+
+escribir_poblacion
+
+
+escribir_arbol_genealogico
+X1
+
+escribir_arbol_genealogico
+Y1
+
+escribir_arbol_genealogico
+X2
+
+escribir_arbol_genealogico
+X3
+
+escribir_arbol_genealogico
+Y2
+
+escribir_arbol_genealogico
+Y3
+
+escribir_arbol_genealogico
+acabar
+
+escribir_arbol_genealogico
+dummie
+
+reproduccion_sexual
+X3 Y1 X4
+
+1 0 4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+escribir_poblacion
+
+reproduccion_sexual
+X4 Y3 X5
+1 1 4
+1 1 3
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+1 1 4
+
+escribir_arbol_genealogico
+X5
+
+
+completar_arbol_genealogico
+X2 Y1 $ $ X1 $ $
+
+completar_arbol_genealogico
+X2 X1 $ $ Y1 $ $
+
+completar_arbol_genealogico
+acabar X1 $ $ $
+
+completar_arbol_genealogico
+acabar Y1 $ $ $
+
+completar_arbol_genealogico
+acabar acabar $ $ acabar $ $
+
+escribir_genotipo
+acabar
+
+escribir_genotipo
+X3
+
+escribir_genotipo
+X4
+
+escribir_genotipo
+X5
+
+escribir_genotipo
+Y3
+
+escribir_poblacion
+
+acabar
+
+
+
+//SORTIDA COMENTADA//
+
+
+
+
+anadir_individuo X2
+anadir_individuo Y2
+escribir_poblacion //tant afegir individu com afegir individu sense instrucció funcionen
+  X1 XX ($,$)
+  X2 XX ($,$)
+  Y1 XY ($,$)
+  Y2 XY ($,$)
+reproduccion_sexual X2 Y2 Y3
+reproduccion_sexual Y2 X2 Y3 // ja ha detectat que Y3 existix i no ha proseguit i també l'ordre està al revés de X i Y
+  error
+reproduccion_sexual Y2 X2 X3 // com es pot observar no es pot canviar l'ordre de X i Y
+  no es posible reproduccion
+reproduccion_sexual X2 Y2 X3
+reproduccion_sexual X1 Y1 X2 // no es pot afegir ascendencia a un individu i no ho permet ja que detecta que X2 ja està en la població
+  error
+completar_arbol_genealogico Y3 // com que no es pot posar ascendencia l'arbre que li hem passat no es pot completar
+  no es arbol parcial
+reproduccion_sexual X1 Y1 acabar
+reproduccion_sexual Y3 acabar Y4 // el primer element es Y per tant no es pot i veiem que no s'ha acabat el programa per tant carrega el dummie
+  no es posible reproduccion
+escribir_poblacion // veiem que totes les reproduccions són correctes
+  X1 XX ($,$)
+  X2 XX ($,$)
+  X3 XX (Y2,X2)
+  Y1 XY ($,$)
+  Y2 XY ($,$)
+  Y3 XY (Y2,X2)
+  acabar XX (Y1,X1)
+escribir_arbol_genealogico X1
+  Nivel 0: X1
+escribir_arbol_genealogico Y1
+  Nivel 0: Y1
+escribir_arbol_genealogico X2
+  Nivel 0: X2
+escribir_arbol_genealogico X3
+  Nivel 0: X3
+  Nivel 1: Y2 X2
+escribir_arbol_genealogico Y2
+  Nivel 0: Y2
+escribir_arbol_genealogico Y3
+  Nivel 0: Y3
+  Nivel 1: Y2 X2
+escribir_arbol_genealogico acabar // no acaba el programa
+  Nivel 0: acabar
+  Nivel 1: Y1 X1
+escribir_arbol_genealogico dummie // reconeix entrades erronies
+  error
+reproduccion_sexual X3 Y1 X4
+escribir_poblacion // s'han fet les reproduccions correctament
+  X1 XX ($,$)
+  X2 XX ($,$)
+  X3 XX (Y2,X2)
+  X4 XX (Y1,X3)
+  Y1 XY ($,$)
+  Y2 XY ($,$)
+  Y3 XY (Y2,X2)
+  acabar XX (Y1,X1)
+reproduccion_sexual X4 Y3 X5
+escribir_arbol_genealogico X5 // veiem que reconeix quan una branca s'acaba , es pot observar que nivell 2 és més ample que nivell 3
+  Nivel 0: X5
+  Nivel 1: Y3 X4
+  Nivel 2: Y2 X2 Y1 X3
+  Nivel 3: Y2 X2
+completar_arbol_genealogico X2 // reconeix que l'arbre parcial sobresurt de l'arbre real
+  no es arbol parcial
+completar_arbol_genealogico X2 // té en compte l'ordre de X i Y
+  no es arbol parcial
+completar_arbol_genealogico acabar // té en compte l'ordre de X i Y
+  no es arbol parcial
+completar_arbol_genealogico acabar // interpreta arbres parcials els quals una branca és mes llarga que la altre, la branca que coincideix amb el final la té en compte
+  acabar Y1 $ $ *X1* $ $
+completar_arbol_genealogico acabar // llegeix tota la entrada i no dona a terme acabar
+  no es arbol parcial
+escribir_genotipo acabar // el genotip de la reproducció és correcte
+  X: 0 1 1 0 0
+  X: 0 1 0 0 0
+  1.1: 0 0 0 1 1 0 1
+  1.2: 0 0 1 1 1 1 1
+  2.1: 1 0 1 0 1
+  2.2: 1 1 1 1 1
+  3.1: 0 1 0 1 0 1
+  3.2: 0 1 1 0 0 1
+  4.1: 0 0 1 1
+  4.2: 0 0 0 1
+  5.1: 1 1 0 1 0 0 0
+  5.2: 1 1 1 1 0 1 0
+  6.1: 0 1 0 0
+  6.2: 0 0 0 0
+  7.1: 0 1 0 0 1
+  7.2: 1 1 0 0 0
+escribir_genotipo X3 // el genotip de la reproducció és correcte
+  X: 1 0 1 1 1
+  X: 0 0 0 0 0
+  1.1: 1 0 0 1 1 0 0
+  1.2: 1 0 1 1 1 1 0
+  2.1: 0 1 1 1 0
+  2.2: 0 0 0 0 0
+  3.1: 0 1 0 1 1 0
+  3.2: 0 0 0 0 1 1
+  4.1: 0 0 1 1
+  4.2: 1 1 0 1
+  5.1: 1 0 0 0 1 0 0
+  5.2: 0 1 1 0 0 1 0
+  6.1: 0 1 0 0
+  6.2: 1 0 1 0
+  7.1: 0 0 0 0 0
+  7.2: 1 1 0 1 1
+escribir_genotipo X4 // el genotip de la reproducció és correcte
+  X: 0 0 0 0 0
+  X: 0 1 0 0 0
+  1.1: 1 0 1 1 1 0 1
+  1.2: 0 0 1 1 1 1 0
+  2.1: 0 0 0 0 1
+  2.2: 1 1 1 1 0
+  3.1: 0 0 0 0 0 1
+  3.2: 0 1 1 0 1 1
+  4.1: 1 1 0 1
+  4.2: 0 0 0 1
+  5.1: 0 1 1 0 0 0 0
+  5.2: 1 1 1 1 0 1 0
+  6.1: 1 0 1 0
+  6.2: 0 0 0 0
+  7.1: 1 1 0 1 1
+  7.2: 1 1 0 0 1
+escribir_genotipo X5 // el genotip de la reproducció és correcte
+  X: 0 1 0 0 0
+  Y: 1 1 0 0 1 1 1 1
+  1.1: 0 0 1 1 1 1 0
+  1.2: 1 0 1 1 1 1 0
+  2.1: 1 1 1 1 0
+  2.2: 1 0 0 0 0
+  3.1: 0 1 1 0 1 1
+  3.2: 0 0 0 1 1 1
+  4.1: 0 0 0 1
+  4.2: 1 1 0 1
+  5.1: 1 1 1 1 0 1 0
+  5.2: 0 1 1 0 0 1 0
+  6.1: 0 0 0 0
+  6.2: 0 0 0 0
+  7.1: 1 1 0 0 1
+  7.2: 1 1 0 1 1
+escribir_genotipo Y3 // el genotip de la reproducció és correcte
+  X: 1 0 1 1 1
+  Y: 1 1 0 0 1 1 1 1
+  1.1: 1 0 0 1 1 0 0
+  1.2: 1 0 1 1 1 1 0
+  2.1: 0 1 1 1 0
+  2.2: 1 0 0 0 0
+  3.1: 0 1 0 0 1 0
+  3.2: 0 0 0 1 1 1
+  4.1: 0 0 1 0
+  4.2: 1 1 0 1
+  5.1: 1 0 0 0 1 0 0
+  5.2: 0 1 1 0 0 1 0
+  6.1: 0 1 0 0
+  6.2: 0 0 0 0
+  7.1: 0 0 0 0 0
+  7.2: 1 1 0 1 1
+escribir_poblacion // el genotip de la reproducció és correcte
+  X1 XX ($,$)
+  X2 XX ($,$)
+  X3 XX (Y2,X2)
+  X4 XX (Y1,X3)
+  X5 XY (Y3,X4)
+  Y1 XY ($,$)
+  Y2 XY ($,$)
+  Y3 XY (Y2,X2)
+  acabar XX (Y1,X1)
+acabar
+
+
+//SORTIDA SENSE COMENTAR//
+
+
+anadir_individuo X2
+anadir_individuo Y2
+escribir_poblacion
+  X1 XX ($,$)
+  X2 XX ($,$)
+  Y1 XY ($,$)
+  Y2 XY ($,$)
+reproduccion_sexual X2 Y2 Y3
+reproduccion_sexual Y2 X2 Y3
+  error
+reproduccion_sexual Y2 X2 X3
+  no es posible reproduccion
+reproduccion_sexual X2 Y2 X3
+reproduccion_sexual X1 Y1 X2
+  error
+completar_arbol_genealogico Y3
+  no es arbol parcial
+reproduccion_sexual X1 Y1 acabar
+reproduccion_sexual Y3 acabar Y4
+  no es posible reproduccion
+escribir_poblacion
+  X1 XX ($,$)
+  X2 XX ($,$)
+  X3 XX (Y2,X2)
+  Y1 XY ($,$)
+  Y2 XY ($,$)
+  Y3 XY (Y2,X2)
+  acabar XX (Y1,X1)
+escribir_arbol_genealogico X1
+  Nivel 0: X1
+escribir_arbol_genealogico Y1
+  Nivel 0: Y1
+escribir_arbol_genealogico X2
+  Nivel 0: X2
+escribir_arbol_genealogico X3
+  Nivel 0: X3
+  Nivel 1: Y2 X2
+escribir_arbol_genealogico Y2
+  Nivel 0: Y2
+escribir_arbol_genealogico Y3
+  Nivel 0: Y3
+  Nivel 1: Y2 X2
+escribir_arbol_genealogico acabar
+  Nivel 0: acabar
+  Nivel 1: Y1 X1
+escribir_arbol_genealogico dummie
+  error
+reproduccion_sexual X3 Y1 X4
+escribir_poblacion
+  X1 XX ($,$)
+  X2 XX ($,$)
+  X3 XX (Y2,X2)
+  X4 XX (Y1,X3)
+  Y1 XY ($,$)
+  Y2 XY ($,$)
+  Y3 XY (Y2,X2)
+  acabar XX (Y1,X1)
+reproduccion_sexual X4 Y3 X5
+escribir_arbol_genealogico X5
+  Nivel 0: X5
+  Nivel 1: Y3 X4
+  Nivel 2: Y2 X2 Y1 X3
+  Nivel 3: Y2 X2
+completar_arbol_genealogico X2
+  no es arbol parcial
+completar_arbol_genealogico X2
+  no es arbol parcial
+completar_arbol_genealogico acabar
+  no es arbol parcial
+completar_arbol_genealogico acabar
+  acabar Y1 $ $ *X1* $ $
+completar_arbol_genealogico acabar
+  no es arbol parcial
+escribir_genotipo acabar
+  X: 0 1 1 0 0
+  X: 0 1 0 0 0
+  1.1: 0 0 0 1 1 0 1
+  1.2: 0 0 1 1 1 1 1
+  2.1: 1 0 1 0 1
+  2.2: 1 1 1 1 1
+  3.1: 0 1 0 1 0 1
+  3.2: 0 1 1 0 0 1
+  4.1: 0 0 1 1
+  4.2: 0 0 0 1
+  5.1: 1 1 0 1 0 0 0
+  5.2: 1 1 1 1 0 1 0
+  6.1: 0 1 0 0
+  6.2: 0 0 0 0
+  7.1: 0 1 0 0 1
+  7.2: 1 1 0 0 0
+escribir_genotipo X3
+  X: 1 0 1 1 1
+  X: 0 0 0 0 0
+  1.1: 1 0 0 1 1 0 0
+  1.2: 1 0 1 1 1 1 0
+  2.1: 0 1 1 1 0
+  2.2: 0 0 0 0 0
+  3.1: 0 1 0 1 1 0
+  3.2: 0 0 0 0 1 1
+  4.1: 0 0 1 1
+  4.2: 1 1 0 1
+  5.1: 1 0 0 0 1 0 0
+  5.2: 0 1 1 0 0 1 0
+  6.1: 0 1 0 0
+  6.2: 1 0 1 0
+  7.1: 0 0 0 0 0
+  7.2: 1 1 0 1 1
+escribir_genotipo X4
+  X: 0 0 0 0 0
+  X: 0 1 0 0 0
+  1.1: 1 0 1 1 1 0 1
+  1.2: 0 0 1 1 1 1 0
+  2.1: 0 0 0 0 1
+  2.2: 1 1 1 1 0
+  3.1: 0 0 0 0 0 1
+  3.2: 0 1 1 0 1 1
+  4.1: 1 1 0 1
+  4.2: 0 0 0 1
+  5.1: 0 1 1 0 0 0 0
+  5.2: 1 1 1 1 0 1 0
+  6.1: 1 0 1 0
+  6.2: 0 0 0 0
+  7.1: 1 1 0 1 1
+  7.2: 1 1 0 0 1
+escribir_genotipo X5
+  X: 0 1 0 0 0
+  Y: 1 1 0 0 1 1 1 1
+  1.1: 0 0 1 1 1 1 0
+  1.2: 1 0 1 1 1 1 0
+  2.1: 1 1 1 1 0
+  2.2: 1 0 0 0 0
+  3.1: 0 1 1 0 1 1
+  3.2: 0 0 0 1 1 1
+  4.1: 0 0 0 1
+  4.2: 1 1 0 1
+  5.1: 1 1 1 1 0 1 0
+  5.2: 0 1 1 0 0 1 0
+  6.1: 0 0 0 0
+  6.2: 0 0 0 0
+  7.1: 1 1 0 0 1
+  7.2: 1 1 0 1 1
+escribir_genotipo Y3
+  X: 1 0 1 1 1
+  Y: 1 1 0 0 1 1 1 1
+  1.1: 1 0 0 1 1 0 0
+  1.2: 1 0 1 1 1 1 0
+  2.1: 0 1 1 1 0
+  2.2: 1 0 0 0 0
+  3.1: 0 1 0 0 1 0
+  3.2: 0 0 0 1 1 1
+  4.1: 0 0 1 0
+  4.2: 1 1 0 1
+  5.1: 1 0 0 0 1 0 0
+  5.2: 0 1 1 0 0 1 0
+  6.1: 0 1 0 0
+  6.2: 0 0 0 0
+  7.1: 0 0 0 0 0
+  7.2: 1 1 0 1 1
+escribir_poblacion
+  X1 XX ($,$)
+  X2 XX ($,$)
+  X3 XX (Y2,X2)
+  X4 XX (Y1,X3)
+  X5 XY (Y3,X4)
+  Y1 XY ($,$)
+  Y2 XY ($,$)
+  Y3 XY (Y2,X2)
+  acabar XX (Y1,X1)
+acabar

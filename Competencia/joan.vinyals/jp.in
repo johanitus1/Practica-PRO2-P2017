@@ -1,0 +1,223 @@
+6 3
+8 7 8 7 8 7
+5 6
+
+4
+
+a1
+X
+ 1 0 1 0 1
+ 0 0 0 1 0
+ 0 1 1 0 1 0 1 1
+ 1 1 0 1 1 1 1 1
+ 0 0 1 0 1 0 1
+ 0 1 1 1 1 0 1
+ 0 0 0 0 1 1 0 0
+ 0 1 0 0 1 0 0 0
+ 1 1 1 1 1 0 0
+ 1 0 1 0 0 0 0
+ 1 0 1 1 0 1 0 0
+ 1 1 1 1 0 1 0 0
+ 1 0 1 0 1 0 0
+ 0 1 1 1 0 0 0
+
+
+a2
+X
+ 0 0 1 0 0
+ 0 1 0 0 1
+ 1 0 0 1 1 1 0 0
+ 1 1 0 1 0 0 0 1
+ 1 0 0 1 1 0 0
+ 0 1 0 1 0 1 0
+ 0 0 1 0 1 1 0 0
+ 1 0 0 0 1 0 1 1
+ 1 1 0 0 1 0 1
+ 0 0 0 1 0 0 1
+ 1 1 0 0 1 0 0 1
+ 1 0 0 0 1 0 0 0
+ 0 0 0 0 1 1 0
+ 1 1 1 0 1 1 1
+
+
+a3
+Y
+ 1 1 0 1 1
+ 1 0 0 0 0 1
+ 0 1 1 1 0 0 0 0
+ 1 1 0 1 0 0 0 0
+ 1 1 1 1 1 1 1
+ 1 0 0 0 0 1 0
+ 0 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0
+ 1 1 0 1 1 1 1
+ 1 1 1 1 1 0 1
+ 1 0 1 1 0 0 1 0
+ 1 1 1 0 1 0 0 0
+ 1 0 1 1 1 0 0
+ 0 1 1 0 0 1 1
+
+
+a4
+Y
+ 0 0 1 1 0
+ 0 0 0 1 0 0
+ 0 0 1 0 0 1 0 0
+ 0 0 1 0 1 1 0 1
+ 1 0 1 0 1 0 1
+ 0 0 0 0 1 0 1
+ 0 1 1 1 0 1 1 1
+ 1 0 0 1 0 1 0 1
+ 1 1 1 1 0 1 0
+ 1 0 1 0 0 1 1
+ 1 0 1 0 0 0 0 1
+ 1 1 0 0 0 1 1 1
+ 0 1 1 1 1 1 1
+ 0 0 1 1 1 0 0
+
+
+reproduccion_sexual a1 a4 b0
+1 0 1
+0 1 7
+0 0 3
+1 0 5
+0 0 5
+0 1 3
+1 1 0
+
+
+reproduccion_sexual a2 a3 b1
+0 1 1
+1 1 1
+0 0 1
+1 1 0
+1 1 2
+0 1 2
+0 0 3
+
+
+reproduccion_sexual a1 a4 b2
+1 1 2
+1 1 0
+1 1 2
+1 1 0
+1 1 4
+1 0 3
+0 0 1
+
+
+reproduccion_sexual a1 a3 b3
+0 0 0
+0 0 6
+1 1 1
+1 0 7
+0 0 1
+1 1 4
+0 1 3
+
+escribir_poblacion
+
+escribir_arbol_genealogico b0
+
+reproduccion_sexual b0 b1 c0
+0 1 3
+1 1 5
+0 1 3
+0 0 4
+1 0 6
+1 1 3
+1 1 1
+
+escribir_poblacion
+
+completar_arbol_genealogico
+ c0 $ b0 $ $
+
+reproduccion_sexual a1 a4 c1
+1 0 2
+0 0 3
+1 1 4
+0 1 3
+1 1 6
+0 1 3
+0 0 1
+
+reproduccion_sexual b3 c0 d0
+0 1 5
+1 1 2
+1 1 3
+0 1 4
+1 0 3
+1 1 6
+0 1 3
+
+escribir_poblacion
+
+completar_arbol_genealogico
+ d0 $ $
+
+escribir_arbol_genealogico d0
+
+escribir_genotipo a3
+
+escribir_genotipo d0
+
+anadir_individuo w0
+Y
+1 1 0 1 1
+1 0 0 0 0 1
+0 1 1 1 0 0 0 0
+1 1 0 1 0 0 0 0
+1 1 1 1 1 1 1
+1 0 0 0 0 1 0
+0 0 0 0 1 1 0 0
+0 1 0 0 1 0 0 0
+1 1 1 1 1 0 0
+1 0 1 0 0 0 0
+1 0 1 1 0 1 0 0
+1 1 1 1 0 1 0 0
+1 0 1 0 1 0 0
+0 1 1 1 0 0 0
+
+escribir_poblacion
+
+reproduccion_sexual c1 w0 w1
+1 1 3
+1 1 0
+1 0 3
+0 1 4
+0 1 6
+0 0 3
+0 0 1
+
+reproduccion_sexual c1 a4 w2
+1 0 3
+1 1 0
+1 1 3
+0 1 4
+0 1 6
+0 1 3
+1 0 1
+
+escribir_poblacion
+
+completar_arbol_genealogico
+ w1 c1 $ $ $
+
+completar_arbol_genealogico
+  w1 $ c1 $ $
+
+escribir_arbol_genealogico w1
+
+reproduccion_sexual w0 w1 f0
+acabar 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+
+escribir_poblacion
+
+acabar

@@ -1,0 +1,136 @@
+reproduccion_sexual a1 a4 b0
+reproduccion_sexual a2 a3 b1
+reproduccion_sexual a1 a4 b2
+reproduccion_sexual a1 a3 b3
+escribir_poblacion
+  a1 XX ($,$)
+  a2 XX ($,$)
+  a3 XY ($,$)
+  a4 XY ($,$)
+  b0 XX (a4,a1)
+  b1 XY (a3,a2)
+  b2 XY (a4,a1)
+  b3 XX (a3,a1)
+escribir_arbol_genealogico b0
+  Nivel 0: b0
+  Nivel 1: a4 a1
+reproduccion_sexual b0 b1 c0
+escribir_poblacion
+  a1 XX ($,$)
+  a2 XX ($,$)
+  a3 XY ($,$)
+  a4 XY ($,$)
+  b0 XX (a4,a1)
+  b1 XY (a3,a2)
+  b2 XY (a4,a1)
+  b3 XX (a3,a1)
+  c0 XY (b1,b0)
+completar_arbol_genealogico c0
+  c0 *b1* *a3* $ $ *a2* $ $ b0 *a4* $ $ *a1* $ $
+reproduccion_sexual a1 a4 c1
+reproduccion_sexual b3 c0 d0
+escribir_poblacion
+  a1 XX ($,$)
+  a2 XX ($,$)
+  a3 XY ($,$)
+  a4 XY ($,$)
+  b0 XX (a4,a1)
+  b1 XY (a3,a2)
+  b2 XY (a4,a1)
+  b3 XX (a3,a1)
+  c0 XY (b1,b0)
+  c1 XX (a4,a1)
+  d0 XY (c0,b3)
+completar_arbol_genealogico d0
+  d0 *c0* *b1* *a3* $ $ *a2* $ $ *b0* *a4* $ $ *a1* $ $ *b3* *a3* $ $ *a1* $ $
+escribir_arbol_genealogico d0
+  Nivel 0: d0
+  Nivel 1: c0 b3
+  Nivel 2: b1 b0 a3 a1
+  Nivel 3: a3 a2 a4 a1
+escribir_genotipo a3
+  X: 1 1 0 1 1
+  Y: 1 0 0 0 0 1
+  1.1: 0 1 1 1 0 0 0 0
+  1.2: 1 1 0 1 0 0 0 0
+  2.1: 1 1 1 1 1 1 1
+  2.2: 1 0 0 0 0 1 0
+  3.1: 0 0 0 1 1 1 0 0
+  3.2: 0 0 0 0 0 0 0 0
+  4.1: 1 1 0 1 1 1 1
+  4.2: 1 1 1 1 1 0 1
+  5.1: 1 0 1 1 0 0 1 0
+  5.2: 1 1 1 0 1 0 0 0
+  6.1: 1 0 1 1 1 0 0
+  6.2: 0 1 1 0 0 1 1
+escribir_genotipo d0
+  X: 1 1 0 0 1
+  Y: 1 0 1 0 0 1
+  1.1: 0 1 0 1 0 1 0 1
+  1.2: 1 1 1 1 0 0 1 1
+  2.1: 1 1 1 0 1 0 1
+  2.2: 1 0 0 1 1 0 1
+  3.1: 0 1 0 0 1 1 1 1
+  3.2: 0 0 0 0 1 0 0 0
+  4.1: 1 1 1 1 0 0 1
+  4.2: 1 1 1 1 1 0 0
+  5.1: 1 1 1 0 0 1 0 0
+  5.2: 1 1 0 1 0 1 0 0
+  6.1: 1 0 1 1 0 0 0
+  6.2: 1 1 1 0 0 1 1
+anadir_individuo w0
+escribir_poblacion
+  a1 XX ($,$)
+  a2 XX ($,$)
+  a3 XY ($,$)
+  a4 XY ($,$)
+  b0 XX (a4,a1)
+  b1 XY (a3,a2)
+  b2 XY (a4,a1)
+  b3 XX (a3,a1)
+  c0 XY (b1,b0)
+  c1 XX (a4,a1)
+  d0 XY (c0,b3)
+  w0 XY ($,$)
+reproduccion_sexual c1 w0 w1
+reproduccion_sexual c1 a4 w2
+  no es posible reproduccion
+escribir_poblacion
+  a1 XX ($,$)
+  a2 XX ($,$)
+  a3 XY ($,$)
+  a4 XY ($,$)
+  b0 XX (a4,a1)
+  b1 XY (a3,a2)
+  b2 XY (a4,a1)
+  b3 XX (a3,a1)
+  c0 XY (b1,b0)
+  c1 XX (a4,a1)
+  d0 XY (c0,b3)
+  w0 XY ($,$)
+  w1 XY (w0,c1)
+completar_arbol_genealogico w1
+  no es arbol parcial
+completar_arbol_genealogico w1
+  w1 *w0* $ $ c1 *a4* $ $ *a1* $ $
+escribir_arbol_genealogico w1
+  Nivel 0: w1
+  Nivel 1: w0 c1
+  Nivel 2: a4 a1
+reproduccion_sexual w0 w1 f0
+  no es posible reproduccion
+escribir_poblacion
+  a1 XX ($,$)
+  a2 XX ($,$)
+  a3 XY ($,$)
+  a4 XY ($,$)
+  b0 XX (a4,a1)
+  b1 XY (a3,a2)
+  b2 XY (a4,a1)
+  b3 XX (a3,a1)
+  c0 XY (b1,b0)
+  c1 XX (a4,a1)
+  d0 XY (c0,b3)
+  w0 XY ($,$)
+  w1 XY (w0,c1)
+acabar
